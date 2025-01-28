@@ -53,19 +53,9 @@ export const FrcsInputsContainer = (props: Props) => {
                 </StyledInput>
               <FormText>
                 <span id='treatmentTooltip'>
-                  Description:
+                  Description: {' '}
                   {Treatments[props.inputs.treatmentid - 1].description}
                 </span>
-                <UncontrolledTooltip
-                  placement='bottom'
-                  target='treatmentTooltip'
-                  className='tooltip-sidebar'
-                  container='sidebar'
-                >
-                  Private: {Treatments[props.inputs.treatmentid - 1].private}
-                  <br />
-                  Forest: {Treatments[props.inputs.treatmentid - 1].forest}
-                </UncontrolledTooltip>
               </FormText>
             </FormGroup>
             <FormGroup className='flex items-start justify-center flex-col'>
@@ -128,19 +118,9 @@ export const FrcsInputsContainer = (props: Props) => {
                 </StyledInput>
               <FormText>
                 <span id='treatmentTooltip'>
-                  Description:
+                  Description: {' '}
                   {Treatments[props.inputs.treatmentid - 1].description}
                 </span>
-                <UncontrolledTooltip
-                  placement='bottom'
-                  target='treatmentTooltip'
-                  className='tooltip-sidebar'
-                  container='sidebar'
-                >
-                  Private: {Treatments[props.inputs.treatmentid - 1].private}
-                  <br />
-                  Forest: {Treatments[props.inputs.treatmentid - 1].forest}
-                </UncontrolledTooltip>
               </FormText>
             </FormGroup>
             <FormGroup className='flex items-start justify-center flex-col'>

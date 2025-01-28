@@ -296,6 +296,7 @@
     justify-content: center;
     gap: 6rem;    
     padding: 16px;
+    max-width: 786px;
 }
 
 .publications-container>* {

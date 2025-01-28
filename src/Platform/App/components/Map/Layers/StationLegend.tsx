@@ -1,11 +1,5 @@
-import React from 'react';
-
 export const StationLegend = () => (
-  <div
-    id='legend-main_Substation_5544'
-    className='esriLegendService'
-    style={{ display: 'block' }}
-  >
+  <div className='esriLegendService' style={{ display: 'block' }}>
     <table width='95%'>
       <tbody>
         <tr>
@@ -17,10 +11,7 @@ export const StationLegend = () => (
         </tr>
       </tbody>
     </table>
-    <div
-      id='legend-main_Substation_5544_0'
-      style={{ display: 'block' }}
-    >
+    <div style={{ display: 'block' }}>
       <table width='95%' className='esriLegendLayerLabel'>
         <tbody>
           <tr>
@@ -44,21 +35,14 @@ export const StationLegend = () => (
                   height={30}
                   style={{ touchAction: 'none' }}
                 >
-                  <defs />
-                  <path
-                    fill='rgb(255, 200, 69)'
-                    fillOpacity={1}
-                    stroke='rgb(0, 0, 0)'
-                    strokeOpacity={1}
-                    strokeWidth='1.3333333333333333'
-                    strokeLinecap='butt'
-                    strokeLinejoin='miter'
-                    strokeMiterlimit={4}
-                    path='M -5.333333333333333,5.333333333333333 L -5.333333333333333,-5.333333333333333 L 5.333333333333333,-5.333333333333333 L 5.333333333333333,5.333333333333333 L -5.333333333333333,5.333333333333333 Z'
-                    d='M-5.3333 5.3333L-5.3333-5.3333L 5.3333-5.3333L 5.3333 5.3333L-5.3333 5.3333Z'
-                    fillRule='evenodd'
-                    strokeDasharray='none'
-                    transform='matrix(1.00000000,0.00000000,0.00000000,1.00000000,15.00000000,15.00000000)'
+                  <circle
+                    cx="15"
+                    cy="15"
+                    r="6"
+                    fill="#3388ff"
+                    fillOpacity="0.7"
+                    stroke="#3388ff"
+                    strokeWidth="1"
                   />
                 </svg>
               </div>
@@ -67,7 +51,7 @@ export const StationLegend = () => (
               <table width='95%'>
                 <tbody>
                   <tr>
-                    <td align='left' />
+                    <td align='left'>Electric Substations</td>
                   </tr>
                 </tbody>
               </table>

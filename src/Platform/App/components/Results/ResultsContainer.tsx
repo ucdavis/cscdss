@@ -1,28 +1,23 @@
-import ReactGA from 'react-ga4';
-import { faCheck, faDownload, faHome } from '@fortawesome/free-solid-svg-icons';
+import { faCheck, faDownload } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { InputModCHP, InputModGP, InputModGPO } from '@ucdavis/tea/input.model';
 import { OutputModSensitivity } from '@ucdavis/tea/output.model';
 import { useState } from 'react';
-import { CopyToClipboard } from 'react-copy-to-clipboard';
+import ReactGA from 'react-ga4';
 import {
-  Button,
   Modal,
   Pagination,
   PaginationItem,
   PaginationLink,
   Progress,
-  Spinner,
-  Tooltip
+  Spinner
 } from 'reactstrap';
+import { useSaveModel } from '../../../Context/saveModel';
 import { AllYearsResults, FrcsInputs, YearlyResult } from '../../models/Types';
+import UserDetails from '../Form/UserDetails';
+import { HomeButton } from '../Shared/Button';
 import { AllResultsContainer } from './AllResultsContainer';
 import { YearlyResultsContainer } from './YearlyResultsContainer';
-import UserDetails from '../Form/UserDetails';
-import { useSaveModel } from '../../../Context/saveModel';
-import { URL_LANDING_PAGE } from '../../../../Resources/Constants';
-import TooltipWrapper from '../../../../Shared/TooltipWrapper';
-import { HomeButton } from '../Shared/Button';
 
 interface Props {
   years: number[];
@@ -78,6 +73,8 @@ export const ResultsContainer = (props: Props) => {
     handleCopy();
     toggleModal();
   };
+
+  const LOADING_PROGRESS = (props.yearlyResults.length / props.years.length) * 100;
   
 
   return (
@@ -94,7 +91,7 @@ export const ResultsContainer = (props: Props) => {
                 <div className="flex items-center justify-center gap-x-4">
                   {!linkCopied ? (
                     <button 
-                      className="bg-white hover:bg-gray-400 text-gray-800 text-12p font-bold py-2 px-2 rounded-lg flex items-center justify-center border-white border-2p w-200p"
+                      className="text-white hover:bg-gray-400 text-gray-800 text-12p font-bold py-2 px-2 rounded-lg flex items-center justify-center border-white border-2p w-200p"
                       onClick={toggleModal}
                     >
                       <div className="flex items-center justify-center gap-x-2">
@@ -104,7 +101,7 @@ export const ResultsContainer = (props: Props) => {
                     </button>
                   ) : (
                     <button 
-                      className="bg-white hover:bg-gray-400 text-green-100 text-12p font-bold py-2 px-2 rounded-lg flex items-center justify-center border-white border-2p w-200p"
+                      className="text-white hover:bg-gray-400 text-green-100 text-12p font-bold py-2 px-2 rounded-lg flex items-center justify-center border-white border-2p w-200p"
                     >
                       <div className="flex items-center justify-center gap-x-2">
                         <FontAwesomeIcon icon={faCheck} />
@@ -114,8 +111,13 @@ export const ResultsContainer = (props: Props) => {
                   )}
                 </div>
               )}
+              {(LOADING_PROGRESS !== 100) && (
+                <Spinner size="sm" color='light' className='mt-1 ml-1'>
+                {''}
+                </Spinner>
+              )}
               <HomeButton 
-                loading={props.loading}
+                loading={LOADING_PROGRESS !== 100}
                 tooltipText='Go To Home' 
                 tooltipTarget='goToHomeButton'
               />
@@ -141,7 +143,7 @@ export const ResultsContainer = (props: Props) => {
         </div>
         <div className="my-1">
           <Progress
-            value={(props.yearlyResults.length / props.years.length) *100}
+            value={LOADING_PROGRESS}
           />
         </div>
         {props.selectedYearIndex === props.years.length && (

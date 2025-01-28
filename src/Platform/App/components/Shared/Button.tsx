@@ -36,6 +36,7 @@ export const HomeButton = ({ loading, tooltipText, tooltipTarget }: HomeButtonPr
         href={URL_LANDING_PAGE}
         className='cursor-pointer flex items-center justify-center gap-x-2'
         id='goToHomeButton'
+        disabled={loading}
         >
         <FontAwesomeIcon icon={faHome} style={{ fontSize: '14px' }} />
         </Button>

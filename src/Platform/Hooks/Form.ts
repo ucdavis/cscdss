@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import axios, { AxiosError, AxiosResponse } from 'axios';
+import { serviceUrl } from '../App/components/Shared/config';
 
 type MethodTypes = 'post' | 'put' | 'patch';
 
@@ -27,9 +28,7 @@ export const useSubmitForm = <T>(apiDetails: SubmitFormHookProps) => {
         ? 'http://localhost:3000'
         : process.env.REACT_APP_BE_URL;
 
-    const url = baseUrl
-      ? new URL(endpoint, baseUrl).toString()
-      : `/${endpoint}`;
+    const url = serviceUrl + endpoint;
 
     console.log('Submitting to URL:', url);
 

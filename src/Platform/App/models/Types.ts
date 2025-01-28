@@ -81,95 +81,73 @@ export interface Treatment {
   id: number;
   name: string;
   description: string;
-  private: string;
-  forest: string;
 }
 
 export const Treatments: Treatment[] = [
   {
     id: 1,
-    name: 'Clearcut',
-    description: 'All live and dead trees over 10 inches cut.',
-    private:
-      'For smaller size classes, cut at the following proportions for both live and dead: 0-1" DBH - 30%, 1-5" DBH - 60%, 5-10" DBH - 90%',
-    forest: 'This treatment is not performed on FS land.'
+    name: 'RMI100',
+    description: 'Remove all live and dead trees.'
   },
   {
     id: 2,
-    name: 'Commercial Thin',
+    name: 'SDI30',
     description:
-      'Remove trees > 10 inches DBH, starting with small ones closest to 10” until a certain residual basal area is reached, which is based on site class',
-    private: 'N/A',
-    forest: 'This treatment is not performed on FS land.'
+      'Stand Density Index (SDI) targeted treatment, aims to reduce the SDI of stands to a targeted portion of the maximum SDI for the stand. SDI30 targets a final SDI of 30% of the maximum SDI.'
   },
   {
     id: 3,
-    name: 'Commercial Thin Chip Tree Removal',
+    name: 'SDI55',
     description:
-      'Same as Commercial thin but with the additional removal of small trees.',
-    private:
-      'Remove small trees in the following proportions: 0-1" DBH, - 20% 1-5" DBH - 50%, 5-10" DBH - 80%',
-    forest:
-      'Remove small trees in the following proportions: 0-1" DBH - 20%, 1-5" DBH - 85%, 5-10" DBH - 90%'
+      'Stand Density Index (SDI) targeted treatment, aims to reduce the SDI of stands to a targeted portion of the maximum SDI for the stand. SDI55 targets a final SDI of 55% of the maximum SDI.'
   },
   {
     id: 4,
-    name: 'Timber Salvage',
-    description: 'Remove all dead trees for timber (fire salvage)',
-    private: 'N/A',
-    forest: 'N/A'
+    name: 'TFA_20',
+    description:
+      '20% reduction in basal area, thinning from above (the largest trees are removed first)'
   },
   {
     id: 5,
-    name: 'Timber Salvage Chip Tree Removal',
+    name: 'TFA_40',
     description:
-      'Same as Timber Salvage but with the additional removal of small trees.',
-    private:
-      'Remove small trees in the following proportions: 0-1" DBH - 30%, 1-5" DBH - 60%, 5-10" DBH - 90%',
-    forest:
-      'Remove small trees in the following proportions: 0-1" DBH - 20%, 1-5" DBH - 85%, 5-10" DBH - 90%'
+      '40% reduction in basal area, thinning from above (the largest trees are removed first)'
   },
   {
     id: 6,
-    name: 'Selection',
+    name: 'TFA_60',
     description:
-      'Remove some trees but leave behind at least 15 sq ft/ac of basal area of trees > 18" DBH',
-    private: 'N/A',
-    forest: 'This treatment is not performed on FS land.'
+      '60% reduction in basal area, thinning from above (the largest trees are removed first)'
   },
   {
     id: 7,
-    name: 'Selection Chip Tree Removal',
+    name: 'TFA_80',
     description:
-      'Same as Selection thin but with the additional removal of small trees.',
-    private:
-      'Remove small trees in the following proportions: 0-1" DBH - 20%, 1-5" DBH - 50%, 5-10" DBH - 80%',
-    forest: 'This treatment is not performed on FS land.'
+      '80% reduction in basal area, thinning from above (the largest trees are removed first)'
   },
   {
     id: 8,
-    name: 'Ten Percent Group Selection',
+    name: 'TFB_20',
     description:
-      '10% of the area of the harvest unit is Clearcut and the rest of the area meets requirements for Selection with small tree removal',
-    private: '',
-    forest: ''
+      '20% reduction in basal area, thinning from below (the smallest trees are removed first)'
   },
   {
     id: 9,
-    name: 'Twenty Percent Group Selection',
+    name: 'TFB_40',
     description:
-      '20% of the area of the harvest unit is Clearcut and the rest of the area meets requirements for Selection with small tree removal',
-    private: '',
-    forest: 'This treatment is not performed on FS land.'
+      '40% reduction in basal area, thinning from below (the smallest trees are removed first)'
   },
   {
     id: 10,
-    name: 'Biomass Salvage',
-    description: 'Remove all dead trees for biomass (die-off salvage)',
-    private:
-      'Remove small trees in the following proportions: 0-1" DBH - 30%, 1-5" DBH - 60%, 5-10" DBH - 90%',
-    forest:
-      'Remove small trees in the following proportions: 0-1" DBH - 20%, 1-5" DBH - 85%, 5-10" DBH - 90%'
+    name: 'TFB_60',
+    description:
+      '60% reduction in basal area, thinning from below (the smallest trees are removed first)'
+  },
+  {
+    id: 11,
+    name: 'TFB_80',
+    description:
+      '80% reduction in basal area, thinning from below (the smallest trees are removed first)'
   }
 ];
 

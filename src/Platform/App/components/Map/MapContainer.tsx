@@ -63,6 +63,7 @@ import { ExternalLayerSelection } from './ExternalLayerSelection';
 import { GeoJsonLayers } from './GeoJsonLayers';
 import NominatimSearchControl from './NominatimSearchControl';
 import { PrintControl } from './PrintControl';
+import { SubstationLayer } from './Layers/SubstationLayer';
 
 
 export interface RequestParamsAllYearsNoTransmission {
@@ -104,9 +105,9 @@ const processDieselFuelPrice = (price: string | number): number => {
 };
 
 const getShortUrlData = async (modelID:string) => {
-  const serviceUrl = `${baseUrl}/saved-model/`;
+  const getUrlData = serviceUrl + `saved-model`;
 
-  const originalUrl = await fetch(serviceUrl + modelID, {
+  const originalUrl = await fetch(getUrlData + '/' + modelID, {
     mode: 'cors',
     method: 'GET',
     headers: {
@@ -120,11 +121,6 @@ const getShortUrlData = async (modelID:string) => {
 
   return originalUrl;
 };
-
-const baseUrl =
-      process.env.NODE_ENV === 'development'
-        ? 'http://localhost:3000'
-        : process.env.REACT_APP_BE_URL;
 
 export const MapContainerComponent = () => {
   const { modelID } = useParams();
@@ -342,7 +338,7 @@ export const MapContainerComponent = () => {
     };
 
     const shortenUrl = await fetch(
-      `${baseUrl}/shorten-url`,
+      serviceUrl + `shorten-url`,
       {
         mode: 'cors',
         method: 'POST',
@@ -798,12 +794,7 @@ export const MapContainerComponent = () => {
           />
         )}
         {externalLayers.includes('substation') && (
-          <FeatureLayer
-            url={
-              'https://services3.arcgis.com/bWPjFyq029ChCGur/ArcGIS/rest/services/Substation/FeatureServer/0'
-            }
-            eventHandlers={mapLayerHandler}
-          />
+          <SubstationLayer mapLayerHandler={mapLayerHandler} />
         )}
         {externalLayers.includes('plant') && (
           <FeatureLayer

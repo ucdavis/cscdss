@@ -89,12 +89,19 @@ export const InputContainer = (props: Props) => {
             (FRREDSS)
           </div>
           <div className="flex items-center justify-between gap-x-2 w-full mt-2">
-            <div className='text-white text-24p'>Select Inputs</div>
-          <HomeButton 
-            loading={props.loading}
-            tooltipText='Go To Home' 
-            tooltipTarget='goToHomeButton'
-          />
+              <div className='text-white text-24p'>Select Inputs</div>
+              <div className="flex items-center justify-center gap-x-2">
+                {props.loading && (
+                  <Spinner size="sm" color='light' className='mr-2'>
+                  {''}
+                  </Spinner>
+                )}
+                <HomeButton 
+                  loading={props.loading}
+                  tooltipText='Go To Home' 
+                  tooltipTarget='goToHomeButton'
+                />
+              </div>
           </div>
       </div>
       <div className='cardcontents'>

@@ -169,15 +169,6 @@ export const TechnoeconomicInputs = (props: Props) => {
         </FormGroup>
         {renderInputs}
       </Form>
-      {showDetailedInputs && (
-        <Button
-          color='outline-primary'
-          onClick={() => toggleShowDetailedInputs(!showDetailedInputs)}
-        >
-          Hide More Detailed Inputs
-        </Button>
-      )}
-
       <hr />
     </div>
   );
